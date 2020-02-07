@@ -9,9 +9,9 @@ int main(void)
 {
 	char c, b;
 
-	c = '48';
-	b = '97'
-	while (c <= '57')
+	c = 48;
+	b = 97;
+	while (c <= 57)
 	{
 		putchar (c);
 		c++;
