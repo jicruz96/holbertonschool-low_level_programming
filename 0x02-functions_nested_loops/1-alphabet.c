@@ -1,12 +1,16 @@
 #include "holberton.h"
 
 /**
- * main - Entry point.
- *
- * Return: Always 0 (Success)
- */
-int main(void)
+* print_alphabet - prints lower case alphabet to stdout
+**/
+
+void print_alphabet (void)
 {
-	print_alphabet();
-	return (0);
+	char c = 97;
+	while (c < 123)
+	{
+		_putchar(c);
+		c++;
+	}
+	_putchar(10);
 }
