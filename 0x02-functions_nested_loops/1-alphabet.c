@@ -10,7 +10,7 @@
 * Return: none-- void function
 **/
 
-void print_alphabet (void)
+void print_alphabet(void)
 {
 	int c = 97;
 	while (c < 123)
