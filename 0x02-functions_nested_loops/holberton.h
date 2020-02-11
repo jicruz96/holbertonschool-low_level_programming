@@ -89,4 +89,12 @@ int print_last_digit(int);
 
 void jack_bauer(void);
 
+/**
+* times_table - prints multiplication table for the number 9
+*
+* Return: no return value
+*/
+
+void times_table(void);
+
 #endif
