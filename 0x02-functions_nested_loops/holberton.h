@@ -37,6 +37,7 @@ void print_alphabet_x10(void);
 */
 
 int _islower(int c);
+
 /**
 * _isalpha - checks for alphabetic character
 *
@@ -48,5 +49,19 @@ int _islower(int c);
 */
 
 int _isalpha(int c);
+
+/**
+* print_sign - prints the sign of a number n.
+*
+* @n: number to be checked for sign.
+*
+* Return:
+*  1 and prints + if n > 0
+* -1 and prints - if n < 3
+*  0 and prints 0 if n = 0
+*
+*/
+
+int print_sign(int n);
 
 #endif
