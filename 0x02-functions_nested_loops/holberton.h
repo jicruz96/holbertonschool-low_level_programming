@@ -64,4 +64,13 @@ int _isalpha(int c);
 
 int print_sign(int n);
 
+/**
+* _abs - computes and returns the absolute value of an integer.
+* @int: number to be computed
+* Return: absolute value of argument.
+*
+*/
+
+int _abs(int);
+
 #endif
