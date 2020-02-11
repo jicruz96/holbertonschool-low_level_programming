@@ -14,6 +14,23 @@ int _putchar(char c)
 	return (write(1, &c, 1));
 }
 
-/*More function prototypes go here*/
+/**
+ * print_alphabet - Loop statement that uses the _putchar function to print out
+ * the alphabet, lower case.
+ *
+ * Return: Always 0 (Success)
+ */
+void print_alphabet(void)
+{
+	char c = 97;
+
+	while (c <= 122)
+	{
+		_putchar(c);
+		c++;
+	}
+	_putchar (10);
+	return;
+}
 
 #endif
