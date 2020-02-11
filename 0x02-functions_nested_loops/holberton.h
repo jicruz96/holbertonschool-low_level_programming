@@ -105,4 +105,12 @@ void times_table(void);
 
 int add(int, int);
 
+/**
+* print_to_98 - prints all integers from 'n' to 98l
+* @n: starting number
+* Return: void
+*/
+
+void print_to_98(int n);
+
 #endif
