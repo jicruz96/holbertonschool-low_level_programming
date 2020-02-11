@@ -97,4 +97,12 @@ void jack_bauer(void);
 
 void times_table(void);
 
+/**
+* add - adds the two parameters and returns the result.
+* @int: number to be added
+* Return: sum of the two parameters
+*/
+
+int add(int, int);
+
 #endif
