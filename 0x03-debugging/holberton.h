@@ -11,12 +11,12 @@ void positive_or_negative(int n);
 
 /**
  * largest_number - returns the largest of 3 numbers
- * @int: first integer
- * @int: second integer
- * @int: third integer
+ * @a: first integer
+ * @b: second integer
+ * @c: third integer
  * Return: largest number
  */
 
-int largest_number(int, int, int);
+int largest_number(int a, int b, int c);
 
 #endif
