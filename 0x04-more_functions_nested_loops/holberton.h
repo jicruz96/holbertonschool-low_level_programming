@@ -92,4 +92,10 @@ void print_diagonal(int n);
 
 void print_square(int size);
 
+/**
+* fizz_buzz - Plays the children's game Fizz-Buzz until number n
+*
+* Return: none-- void function
+**/
+
 #endif
