@@ -17,20 +17,22 @@ void fizz_buzz(void)
 	{
 		if (output % FizzBuzz == 0)
 		{
-			printf("FizzBuzz ");
+			printf("FizzBuzz");
 		}
 		else if (output % Fizz == 0)
 		{
-			printf("Fizz ");
+			printf("Fizz");
 		}
 		else if (output % Buzz == 0)
 		{
-			printf("Buzz ");
+			printf("Buzz");
 		}
 		else
 		{
-			printf("%d ", output);
+			printf("%d", output);
 		}
+		if (output != n)
+			putchar(' ');
 	}
 	printf("\n");
 }
