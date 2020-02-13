@@ -113,4 +113,11 @@ int add(int, int);
 
 void print_to_98(int n);
 
+/*
+* print_times_table - prints multiplication table for the number n
+* @n: multiplication table value to be printed
+* Return: void
+*/
+
+void print_times_table(int n);
 #endif
