@@ -93,9 +93,11 @@ void print_diagonal(int n);
 void print_square(int size);
 
 /**
-* fizz_buzz - Plays the children's game Fizz-Buzz until number n
-*
+* print_triangle - draws a right triangle of base length n '#' characters
+* @n: base length of triangle, represented by '#' characters
 * Return: none-- void function
 **/
+
+void print_triangle(int n);
 
 #endif
