@@ -19,6 +19,8 @@ void print_square(int size)
 			_putchar(10);
 		}
 	}
-	_putchar(10);
+	else
+	{
+		_putchar(10);
+	}
 }
-
