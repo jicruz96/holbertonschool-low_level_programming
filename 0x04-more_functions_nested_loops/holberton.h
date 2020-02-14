@@ -100,4 +100,11 @@ void print_square(int size);
 
 void print_triangle(int n);
 
+/**
+* print_number - prints integer n
+* @n: number to be printed
+*/
+
+void print_number(int n);
+
 #endif
