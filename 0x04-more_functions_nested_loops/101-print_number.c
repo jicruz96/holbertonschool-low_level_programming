@@ -1,4 +1,5 @@
 #include <math.h>
+#include <stdio.h>
 #include "holberton.h"
 
 /**
@@ -8,14 +9,23 @@
 
 void print_number(int n)
 {
-	int temp = n;
+	int temp;
 	int size = 1;
 
+	if (n == -2147483648)
+	{
+		_putchar(45);
+		_putchar(50);
+		n = n % 1000000000;
+		n = -n;
+	}
 	if (n < 0)
 	{
 		_putchar(45);
 		n = -n;
 	}
+
+	temp = n;
 
 	while (temp / 10 != 0)
 	{
