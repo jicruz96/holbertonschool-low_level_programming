@@ -10,5 +10,11 @@
 
 void print_rev(char *s)
 {
-	/* code goes here */
+	int count = 0;
+
+	while (s[count])
+		count++;
+	for (; count >= 0; count--)
+		_putchar(s[count]);
+	_putchar(10);
 }
