@@ -16,7 +16,7 @@ void rev_string(char *s)
 
 	while (s[strlen])
 		strlen++;
-	while ( index_num < --strlen)
+	while (index_num < --strlen)
 	{
 		front = s[index_num];
 		back = s[strlen];
