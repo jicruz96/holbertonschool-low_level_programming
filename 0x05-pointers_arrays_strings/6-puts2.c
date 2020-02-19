@@ -12,10 +12,13 @@ void puts2(char *str)
 {
 	int index_num, c;
 
-	for (index_num = 0; str[index_num]; index_num += 2)
+	for (index_num = 0; str[index_num]; index_num++)
 	{
-		c = str[index_num];
-		_putchar(c);
+		if (index_num % 2 == 0)
+		{
+			c = str[index_num];
+			_putchar(c);
+		}
 	}
 	_putchar(10);
 }
