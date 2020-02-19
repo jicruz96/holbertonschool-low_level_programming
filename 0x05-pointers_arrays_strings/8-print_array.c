@@ -12,5 +12,13 @@
 
 void print_array(int *a, int n)
 {
-	/* code goes here */
+	int index_num;
+
+	for (index_num = 0; index_num < n; index_num++)
+	{
+		printf("%d", a[index_num]);
+		if (index_num != n - 1)
+			printf(", ");
+	}
+	printf("\n");
 }
