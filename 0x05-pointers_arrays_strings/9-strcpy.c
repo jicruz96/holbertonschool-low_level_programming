@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 
 /**
 * *_strcpy - copies the string pointed to by src
@@ -12,5 +13,13 @@
 
 char *_strcpy(char *dest, char *src)
 {
-	/* code goes here */
+	int index_num;
+
+	for (index_num = 0; src[index_num]; index_num++)
+		dest[index_num] = src[index_num];
+	printf("dest is: %s\n", dest);
+	printf("dest is: %p\n", dest);
+	printf("src is: %s\n", src);
+	printf("src is: %p\n", src);
+	return (dest);
 }
