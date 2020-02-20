@@ -20,9 +20,12 @@ char *_strncat(char *dest, char *src, int n)
 		{
 			for (iSrc = 0; ; iSrc++, iDest++)
 			{
-				dest[iDest] = src[iSrc];
-				if (iSrc == n - 1 || src[iSrc] == '\0')
+				if (iSrc >= n - 1 || src[iSrc] == '\0')
+				{
+					dest[iDest] = '\0';
 					break;
+				}
+				dest[iDest] = src[iSrc];
 			}
 			break;
 		}
