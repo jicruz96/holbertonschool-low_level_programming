@@ -17,10 +17,9 @@ char *_strcat(char *dest, char *src)
 	{
 		if (dest[iDest] == '\0')
 		{
-			for (iSrc = 0; ; iSrc++)
+			for (iSrc = 0; ; iSrc++, iDest++)
 			{
 				dest[iDest] = src[iSrc];
-				iDest++;
 				if (src[iSrc] == '\0')
 					break;
 			}
