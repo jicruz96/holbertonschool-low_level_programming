@@ -18,14 +18,17 @@ char *_strncat(char *dest, char *src, int n)
 	{
 		if (dest[iDest] == '\0')
 		{
-			for (iSrc = 0; ; iSrc++, iDest++)
+			for (iSrc = 0; iSrc <= n; iSrc++, iDest++)
 			{
-				if (iSrc >= n - 1 || src[iSrc] == '\0')
+				if (iSrc == n)
 				{
 					dest[iDest] = '\0';
 					break;
 				}
 				dest[iDest] = src[iSrc];
+				if (src[iSrc] == '\0')                                                             {
+                                        break;
+                                }
 			}
 			break;
 		}

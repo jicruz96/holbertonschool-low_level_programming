@@ -8,8 +8,8 @@
  */
 int main(void)
 {
-    char s1[50] = "Hello ";
-    char s2[] = "Brett!\n";
+    char s1[98] = "Hello ";
+    char s2[] = "its me and im going to rock this code\n";
     char *p;
 
     printf("%s\n", s1);
@@ -18,7 +18,7 @@ int main(void)
     printf("%s\n", s1);
     printf("%s", s2);
     printf("%s\n", p);
-    p = _strncat(s1, s2, 0);
+    p = _strncat(s1, s2, 1024);
     printf("%s", s1);
     printf("%s", s2);
     printf("%s", p);
