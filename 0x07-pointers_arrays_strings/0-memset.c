@@ -7,7 +7,7 @@
 * @b: constant byte
 * @n: number of bytes to fill with the constant byte
 *
-* Return - pointer to memory area s
+* Return: pointer to memory area s
 *
 */
 
