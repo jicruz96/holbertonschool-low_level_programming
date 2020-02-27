@@ -1,11 +1,12 @@
 #include "holberton.h"
 
 /**
-* factorial - returns the factorial of a given number
+* _pow_recursion - returns x to the power of y
 *
-* @n: n! will be returned
+* @x: base
+* @y: power
 *
-* Return: n!
+* Return: x^(y)
 */
 
 int _pow_recursion(int x, int y)
