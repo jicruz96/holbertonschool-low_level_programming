@@ -14,6 +14,7 @@ int is_prime_number(int n)
 
 	if (n < 0)
 		return (0);
+
 	if (n / 10 >= 1)
 	{
 		filter = is_prime_number(n % 10);
