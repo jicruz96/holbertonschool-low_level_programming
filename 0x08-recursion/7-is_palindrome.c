@@ -24,14 +24,18 @@ int is_palindrome(char *s)
 		{
 			return (*s - is_palindrome(s + 1));
 		}
-		/*else if (is_palindrome(s + 1) == is_palindrome(s + 2))
-		{
-			return (-(is_palindrome(s + 1)) + *s);
-		}*/
+		/*
+		* else if (is_palindrome(s + 1) == is_palindrome(s + 2))
+		* {
+		*	 return (-(is_palindrome(s + 1)) + *s);
+		* }
+		*/
 		else
 		{
 			if (is_palindrome(s + 1) + *s == 0)
+			{
 				return (1);
+			}
 			else
 			{
 				if (*(s - 1) == '\0')
