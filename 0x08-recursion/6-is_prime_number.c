@@ -25,8 +25,7 @@ int is_prime_number(int n)
 			}
 			else
 			{
-				
-				return (1);	
+				return (1);
 			}
 		}
 		else
@@ -34,7 +33,7 @@ int is_prime_number(int n)
 			return (0);
 		}
 	}
-	
+
 	if (n == 2 || n == 3 || n == 5 || n == 7)
 		return (1);
 	else
