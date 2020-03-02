@@ -9,7 +9,7 @@
 * Return: 0 (success), or 1 if given more than one argument
 */
 
-int main( int argc, char **argv)
+int main(int argc, char **argv)
 {
 	int cents;
 	int coins = 0;
@@ -32,7 +32,7 @@ int main( int argc, char **argv)
 			else if (cents >= 5)
 				cents -= 5;
 			else if (cents >= 2)
-				cents -=2;
+				cents -= 2;
 			else
 				cents--;
 			coins++;
