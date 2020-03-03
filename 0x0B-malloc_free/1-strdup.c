@@ -21,7 +21,7 @@ char *_strdup(char *str)
 	ptr = malloc(len);		/* allocate memory */
 	if (ptr == NULL)		/* check for NULL */
 		return (NULL);
-	for (i = 0; i <= len; i++)	/* copy string */
+	for (i = 0; i < len; i++)	/* copy string */
 		ptr[i] = str[i];
 	return (ptr);			/* return pointer */
 }
