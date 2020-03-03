@@ -8,7 +8,7 @@
 * @size: size of the character array
 * @c: character to add to array to initialize it
 *
-* Return: char pointer to the array
+* Return: char pointer to the array, or NULL if size = 0 or if malloc failed
 */
 
 char *create_array(unsigned int size, char c)
@@ -16,6 +16,8 @@ char *create_array(unsigned int size, char c)
 	unsigned int i;
 	char *array;			/*declare pointer to array */
 
+	if (size == 0)			/* check if size = 0; if so, return NULL */
+		return (NULL);
 	size *= sizeof(c);		/* scale size to fit size of data type */
 	array = malloc(size);		/* make array point to memory of size */
 	if (array == NULL)		/* check if memory was successfully allocated */
