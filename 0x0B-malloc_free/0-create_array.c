@@ -14,11 +14,13 @@
 char *create_array(unsigned int size, char c)
 {
 	unsigned int i;
-	char *array;	
+	char *array;			/*declare pointer to array */
 
-	size *= sizeof(c);		/*scale size to fit size of data type*/
-	array = malloc(size);		/*make array point to memory of size*/
-	for (i = 0; i < size; i++)	/*initialize array indexes with c*/
+	size *= sizeof(c);		/* scale size to fit size of data type */
+	array = malloc(size);		/* make array point to memory of size */
+	if (array == NULL)		/* check if memory was successfully allocated */
+		return (NULL);
+	for (i = 0; i < size; i++)	/* initialize array indexes with c */
 		array[i] = c;
-	return (array);			/*return the array pointer*/
+	return (array);			/* return the pointer to the array */
 }
