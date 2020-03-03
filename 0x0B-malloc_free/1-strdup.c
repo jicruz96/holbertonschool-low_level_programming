@@ -17,7 +17,7 @@ char *_strdup(char *str)
 
 	for (len = 0; str[len] != '\0'; len++) /* get string length */
 		;
-	ptr = malloc(len * sizeof(char));		/* allocate memory */
+	ptr = (char *)malloc(len * sizeof(char));		/* allocate memory */
 	if (ptr == NULL)				/* check for NULL */
 		return (NULL);
 	for (i = 0; i <= len; i++)			/* copy string */
