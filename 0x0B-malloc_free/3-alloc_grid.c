@@ -19,13 +19,13 @@ int **alloc_grid(int width, int height)
 	if (width <= 0 || height <= 0)	/* check if width or height <= 0 */
 		return (NULL);
 
-	array = malloc(height * sizeof(int *));	/* allocate memory to array */
+	array = (int **)malloc(height * sizeof(int *));	/* allocate memory to array */
 
 	if (array == NULL)		/* check if malloc failed */
 		return (NULL);
 
 	for (i = 0; i < height; i++)	/* allocate memory to array within array */
-		array[i] = malloc(width * sizeof(int));
+		array[i] = (int *)malloc(width * sizeof(int));
 
 	if (array == NULL)		/* check if malloc failed */
 		return (NULL);
