@@ -16,7 +16,7 @@ char *argstostr(int ac, char **av)
 	char *array;
 	int z = 0;
 	int i, len;
-	int size = 1;
+	int size = 0;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
@@ -25,11 +25,12 @@ char *argstostr(int ac, char **av)
 		for (len = 0; av[i][len]; len++)
 			size++;
 
-	array = (char *)malloc(size * sizeof(char));
+	array = (char *)malloc(size * sizeof(char) + 1);
 
 	if (array == NULL)
 		return (NULL);
 
+	printf("size = %d\n", size);
 	for (i = 0; i < ac; i++)
 	{
 		for (len = 0; av[i][len]; len++)
