@@ -30,7 +30,6 @@ char *argstostr(int ac, char **av)
 	if (array == NULL)
 		return (NULL);
 
-	printf("size = %d\n", size);
 	for (i = 0; i < ac; i++)
 	{
 		for (len = 0; av[i][len]; len++)
