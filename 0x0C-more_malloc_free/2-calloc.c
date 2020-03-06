@@ -14,13 +14,13 @@
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int i;
-	char *c;	/* decalre a char pointer. to be used if size = 1 */
+	char *c;
 
 
 	if (nmemb == 0 || size == 0)	/* If either argument is zero, return NULL */
 		return (NULL);
 
-	c = malloc(size * nmemb);	/* set memory to include a space for null */
+	c = malloc(size * nmemb);	/* set memory */
 
 	if (c == NULL)			/* if malloc fails, return NULL */
 		return (NULL);
@@ -28,5 +28,5 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	for (i = 0; i < size * nmemb; i++)	/* Set memory to zero for all elements */
 		c[i] = 0;
 
-	return (c);		/* Return the char pointer as void pointer */
+	return (c);		/* Return the pointer */
 }
