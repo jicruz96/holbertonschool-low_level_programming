@@ -40,12 +40,11 @@ int main(void)
 {
     char *a;
 
-    a = _calloc(1, sizeof(char));
-    strcpy(a, "Hey");
-    strcpy(a + 9, "");
+    a = _calloc(98, sizeof(char));
+    strcpy(a, "Holberton");
+    strcpy(a + 9, " School! :)\n");
     a[97] = '!';
     simple_print_buffer(a, 98);
     free(a);
     return (0);
 }
-
