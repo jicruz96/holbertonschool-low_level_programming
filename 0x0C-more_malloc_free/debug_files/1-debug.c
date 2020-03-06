@@ -49,10 +49,10 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	* or all of s2 and adjust the value of size accordingly
 	*/
 
-	if (len_s1 + len_s2 == 0)
+	if ((s1 == NULL && n == 0) || len_s1 + len_s2 == 0)
 	{
 		size = 0;
-		printf("Both strings are empty or null, size = 0\n");
+		printf("Both strings are empty or null, or we're dealing with a null s1 and no extra memory is needed. size = 0\n");
 	}
 	else if (len_s2 < n)	/* If strlen(s2) < n; size fits s1, s2, & a null char */
 	{
@@ -66,15 +66,15 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		printf("size = %d\n", size);
 		printf("our expected output is = %s + the first %d chars of s2\n", s1, n);
 	}
-
+	printf("about to assign memory...\n");
 	p = malloc(size);	/* allocate memory to p */
-
+	printf("memory assigned...\n");
 	if (p == NULL)		/* if malloc fails, return NULL */
 	{
 		printf("FAILURE\n");
 		return (NULL);
 	}
-
+	printf("about to begin copying s1 into p, unless s1 is NULL\n");
 	if (s1 != NULL)		/* copy s1 onto p */
 	{
 		for (i = 0; s1[i]; i++)
@@ -83,25 +83,26 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 			printf("s1 loop: p[%d] = %c, s1[%d] = %c\n", i, p[i], i, s1[i]);
 		}
 	}
-
-	if (s2 != NULL)		/* copy s2 onto p until one memory space is left */
+	printf("about to begin copying s2 into p, unless s2 is NULL or n is 0\n");
+	if (s2 != NULL && n != 0)	/* copy s2 onto p until one memory space is left */
 	{
-		for (j = 0; i < size - 1 && s2[j]; i++, j++)
+		for (j = 0; i < (size - 1) && s2[j]; i++, j++)
 		{
 			p[i] = s2[j];
 			printf("s2 loop: p[%d] = %c, s2[%d] = %c\n", i, p[i], j, s2[j]);
 		}
 	}
-
-	if (len_s1 + len_s2 != 0)	/* make last position equal to null */
+	printf("about to check if we want to put a null\n");
+	if (len_s1 + len_s2 != 0 && !(n == 0 && s1 == NULL))	/* make last position equal to null */
 	{
-		p[i] = '\0';
-		printf("Putting a null!\n");
+		printf("About to put a null!\n");
+		/*p[i] = '\0';*/
+		printf("null put!\n");
 	}			
 
-	printf("p[%d] = %c, size - i = %d and should equal 1\n", i, p[i], size - i);
+	/*printf("p[%d] = %c, size - i = %d and should equal 1\n", i, p[i], size - i);
 	
-	printf("Done! Returning p, which is:\n%s\n", p);
+	printf("Done! Returning p, which is:\n%s\n", p);*/
 	
 	return (p);		/* return pointer */
 }

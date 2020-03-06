@@ -13,23 +13,15 @@
 
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	int i;
-	int *p;				/* declare an int pointer. this shall be returned */
+	unsigned int i;
+	int *ptr_copy = ptr;
 
+	printf("ptr = something, old_size = %d, new_size = %d\n", old_size, new_size);
 
-	if (new_size > old_size)		/* Check if new_size > old_size */
+	for (i = 0; i < old_size; i++)
 	{
-		p = malloc(new_size);
-		return (p);
-	}
-	else if (new_size == old_size)
-	{
-		return (ptr);
-	}
-	else
-	{
-		p = malloc(new_size);
-		return (p);
+		printf("ptr_copy[%d] = %d\n", i, ptr_copy[i]);
 	}
 
+	return (ptr);
 }
