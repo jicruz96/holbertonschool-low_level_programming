@@ -6,7 +6,7 @@
 *
 * @s1: first string
 * @s2: second string; its first n bytes are concatenated to end of s1
-* @n: bytes of s2 to concatenate onto s1. all of s2 is concatenated if n > strlen(s2)
+* @n: bytes of s2 to concat onto s1. all of s2 is concatenated if n > strlen(s2)
 *
 * Return: always 0, or NULL if malloc fails
 */
