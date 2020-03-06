@@ -18,7 +18,7 @@ int *array_range(int min, int max)
 	int *p;				/* declare an int pointer. this shall be returned */
 
 
-	if (setDigit < 0)		/* Check if min > max. If so, return NULL */
+	if (max - min < 0)		/* Check if min > max. If so, return NULL */
 		return (NULL);
 
 	p = malloc(sizeof(int) * size);	/* Allocate memory */

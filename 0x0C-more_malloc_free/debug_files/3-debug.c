@@ -19,7 +19,7 @@ int *array_range(int min, int max)
 
 	printf("setDigit = %d, size = %d, max = %d, min = %d\n", setDigit, size, max, min);
 
-	if (setDigit < 0)		/* Check if min > max. If so, return NULL */
+	if (max - min < 0)		/* Check if min > max. If so, return NULL */
 	{
 		printf("Min is greater than max! ERROR! Returning NULL\n");
 		return (NULL);
