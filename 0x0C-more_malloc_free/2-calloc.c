@@ -15,7 +15,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 {
 	unsigned int i;
 	int *p;		/* declare an int pointer. to be used with non char pointers */
-	char *c;	/* decalre a char pointer. to be used if size = 1 */
+	char *c, *null;	/* decalre a char pointer. to be used if size = 1 */
 	
 
 	if (nmemb == 0 || size == 0)	/* If either argument is zero, return NULL */
@@ -27,10 +27,12 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 	if (size == 1)				/* For char pointers */
 	{
 		c = malloc(size * nmemb);	/* set memory to include a space for null */
+		null = &c[nmemb];
 		if (c == NULL)			/* if malloc fails, return NULL */
 			return (NULL);
-		for (i = 0; i <= nmemb; i++)	/* Set memory to zero for all elements */
+		for (i = 0; i < nmemb; i++)	/* Set memory to zero for all elements */
 			c[i] = 0;
+		*null = '\0';
 		return ((void *)c);		/* Return the char pointer as void pointer */
 	}
 	else					/* For regular pointers */
