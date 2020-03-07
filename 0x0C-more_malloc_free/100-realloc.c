@@ -14,14 +14,27 @@
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
 	unsigned int i;
-	int *ptr_copy = ptr;
+	char *p;
 
-	printf("ptr = something, old_size = %d, new_size = %d\n", old_size, new_size);
-
-	for (i = 0; i < old_size; i++)
+	if (new_size == 0 && ptr != NULL)
 	{
-		printf("ptr_copy[%d] = %d\n", i, ptr_copy[i]);
+		free(ptr);
+		return (NULL);
 	}
+	else if (new_size == old_size)
+	{
+		return (ptr);
+	}
+	else
+	{	/* if ptr is null, or if new size != 0 or old_size */
+		p = malloc(new_size);
 
-	return (ptr);
+		if (p == NULL)
+			return (NULL);
+
+		for (i = 0; i < old_size && i < new_size; i++)
+			p[i] = *((char *)ptr + i);
+	}
+	free(ptr);
+	return (p);
 }
