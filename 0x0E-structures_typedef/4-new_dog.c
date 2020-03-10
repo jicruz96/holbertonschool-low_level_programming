@@ -14,34 +14,55 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *dog;
+	dog_t *dog = malloc(sizeof(dog_t));
+	char *tmpName = malloc((_strlen(name) + 1) * sizeof(char));
+	char *tmpOwner = malloc ((_strlen(owner) + 1) * sizeof(char));
 
-	dog = malloc(sizeof(struct dog));
 
-	if (dog == NULL)
-		return (NULL);
-
-	if (name != NULL)
-	{
-		dog->name = name;
-	}
-	else
+	if (dog == NULL || tmpName == NULL || tmpOwner == NULL)
 	{
 		free(dog);
+		free(tmpName);
+		free(tmpOwner);
 		return (NULL);
 	}
 
+	_strcpy(tmpName, name);
+	_strcpy(tmpOwner, owner);
+
+	dog->name = tmpName;
 	dog->age = age;
+	dog->owner = tmpOwner;
 	
-	if (owner != NULL)
-	{
-		dog->owner = owner;
-	}
-	else
-	{
-		free(dog);
-		return (NULL);
-	}
-
 	return (dog);
+}
+
+/**
+ * _strlen - finds the length of a string
+ * @s: string to find length
+ *
+ * Return: length of string
+ */
+int _strlen(char *s)
+{
+	int i;
+
+	for (i = 0; s[i]; i++)
+		;
+	return (i);
+}
+/**
+ * _strcpy - copies src string to dest
+ * @dest: destination string
+ * @src: source string
+ *
+ * Return: void
+ */
+void _strcpy(char *dest, char *src)
+{
+	int i = 0;
+
+	for (; src[i]; i++)
+		dest[i] = src[i];
+	dest[i] = '\0';
 }
