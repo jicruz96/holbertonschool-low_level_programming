@@ -23,21 +23,12 @@ int (*get_op_func(char *s))(int, int)
 	};
 	int i = 0;
 
-	printf("Welcome to the get_op function. Entering while loop...\n");
 	while (i < 6)
 	{
-		printf("while loop entered! i = %d\n", i);
-		if (!(strcmp(ops[i].op,s)))
-		{
-			printf("Match found at index %d!\n", i);
+		if (!(strcmp(ops[i].op, s)))
 			return (ops[i].f);
-		}
-		else
-		{
-			printf("No match, incrementing i..\n");
-			i++;
-		}
+		i++;
 	}
-	printf("No matches found. Returning NULL\n");
+
 	return (NULL);
 }
