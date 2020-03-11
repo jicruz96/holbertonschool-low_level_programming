@@ -18,13 +18,15 @@
 int main(int argc, char *argv[])
 {
 	int a, b;
-	int (*operation)(int, int) = get_op_func(argv[2]);
+	int (*operation)(int, int);
 
 	if (argc != 4)
 	{
 		printf("Error\n");
 		exit(98);
 	}
+
+	operation = get_op_func(argv[2]);
 
 	if (operation == NULL)
 	{
@@ -40,6 +42,8 @@ int main(int argc, char *argv[])
 		printf("Error\n");
 		exit(100);
 	}
+
+	printf("%d\n", operation(a, b));
 
 	return (0);
 
