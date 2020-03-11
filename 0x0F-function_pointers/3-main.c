@@ -38,7 +38,7 @@ int main(int argc, char *argv[])
 	a = atoi(*(argv + 1));
 	b = atoi(*(argv + 3));
 
-	if (b == 0 && !(strcmp(argv[2],"/") && strcmp(argv[2], "%")))
+	if (b == 0 && !(strcmp(argv[2], "/") && strcmp(argv[2], "%")))
 	{
 		printf("Error\n");
 		exit(100);
