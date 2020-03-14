@@ -19,7 +19,7 @@ void print_strings(const char *separator, const unsigned int n, ...)
 	va_list strings;
 	char *null_check;
 
-	va_start(members, n);
+	va_start(strings, n);
 
 	if (n != 0)
 	{
@@ -39,5 +39,5 @@ void print_strings(const char *separator, const unsigned int n, ...)
 		}
 		printf("\n");
 	}
-	va_end(members);
+	va_end(strings);
 }
