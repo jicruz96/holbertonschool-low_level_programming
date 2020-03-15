@@ -6,8 +6,7 @@
 /**
 * print_all - prints characters, integers, floats, and strings
 *
-* @separator: string to be printed between stings
-* @n: number of arguments to print
+* @format: string where each ith char represents the data type of the ith arg
 *
 * Return: void
 */
@@ -54,21 +53,50 @@ void print_all(const char * const format, ...)
 
 }
 
+/**
+* print_char - prints characters
+*
+* @list: argument list from program that calls print_char
+*
+* Return: void
+*/
+
 void print_char(va_list list)
 {
 	printf("%c", va_arg(list, int));
 }
 
+/**
+* print_str - prints characters
+*
+* @list: argument list from program that calls print_char
+*
+* Return: void
+*/
 void print_str(va_list list)
 {
 	printf("%s", va_arg(list, char *));
 }
 
+/**
+* print_int - prints characters
+*
+* @list: argument list from program that calls print_char
+*
+* Return: void
+*/
 void print_int(va_list list)
 {
 	printf("%d", va_arg(list, int));
 }
 
+/**
+* print_float - prints characters
+*
+* @list: argument list from program that calls print_char
+*
+* Return: void
+*/
 void print_float(va_list list)
 {
 	printf("%f", va_arg(list, double));
