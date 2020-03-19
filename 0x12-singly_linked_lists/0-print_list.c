@@ -5,7 +5,7 @@
 /**
  * print_list - prints all the elements of a list
  *
- * @list_t: list to be printed
+ * @h: list to be printed
  *
  * Return: the number of nodes
  */
@@ -18,10 +18,10 @@ size_t print_list(const list_t *h)
 	 * CODE BLOCK #1 - PRINT ALL BUT THE LAST ELEMENT
 	 *
 	 * While there are elements left:
-	 * 	a. print the element you're pointing at;
+	 *	a. print the element you're pointing at;
 	 *		b. if the string is null, print [0] (nil) instead;
-	 * 	c. then point to the next element;
-	 * 	d. increment n to store how many elements you've printed;
+	 *	c. then point to the next element;
+	 *	d. increment n to store how many elements you've printed;
 	 *
 	 * NOTE: THIS WILL NOT PRINT THE LAST ELEMENT. CODE BLOCK 2 DOES.
 	 */

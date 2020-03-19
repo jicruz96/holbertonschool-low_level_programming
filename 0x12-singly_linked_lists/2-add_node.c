@@ -26,10 +26,10 @@ list_t *add_node(list_t **head, const char *str)
 	/**
 	 * CODE BLOCK #1 - MAKE A NEW NODE
 	 * Populate the "new" struct with:
-	 * 	a. str in its str data type;
-	 * 	b. the length of str in the len data type by;
+	 *	a. str in its str data type;
+	 *	b. the length of str in the len data type by;
 	 *		b1. incrementing len for every char before the null byte;
-	 *		b2. making new->len equal to len. 
+	 *		b2. making new->len equal to len.
 	 *	c. the address of (what was) the first element of the list;
 	 */
 	new->str = strdup(str);				/*1a*/
