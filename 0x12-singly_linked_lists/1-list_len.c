@@ -14,18 +14,17 @@ size_t list_len(const list_t *h)
 	/**
 	 * CODE BLOCK #0 - VARIABLES
 	 * n keeps track of the length of the list.
-	 *	> n = 1 at first because all lists are at least 1.
 	 *	> n will be incremented each time we access a new element.
 	 */
-	size_t n = 1;
+	int n = 0;
 
 	/**
 	 * CODE BLOCK #1 - COUNT LIST LENGTH
-	 * While there is a pointer ahead of us:
+	 * While our pointer is not null:
 	 *	a. access the next element;
 	 *	b. increment n;
 	 */
-	while (h->next != NULL)
+	while (h != NULL)
 	{
 		h = h->next;				/*1a*/
 		n++;					/*1b*/
