@@ -15,7 +15,7 @@ list_t *add_node(list_t **head, const char *str)
 {
 	/**
 	 * CODE BLOCK #0 - VARIABLES
-	 * "new" is the node to be added. This node is a list_t struct.
+	 * "new" is a pointer to the new node we're adding to the list.
 	 * "len" captures the string length of str.
 	 */
 	list_t *new = malloc(sizeof(list_t));
