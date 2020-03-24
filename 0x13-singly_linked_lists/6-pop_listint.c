@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 /**
- * pop_listint2 - deletes the head node of a listint_t & returns its datum
+ * pop_listint - deletes the head node of a listint_t & returns its datum
  *
  * @head: list to be freed
  *
@@ -20,5 +20,5 @@ int pop_listint(listint_t **head)
 		free(*head);
 		*head = tmp;
 	}
-	return (n);	
+	return (n);
 }

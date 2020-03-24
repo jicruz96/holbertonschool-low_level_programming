@@ -1,7 +1,7 @@
 #include "lists.h"
 #include <stdlib.h>
 /**
- * inset_nodeint_at_index - inserts a new node at a given position
+ * insert_nodeint_at_index - inserts a new node at a given position
  *
  * @head: pointer to head of linked list
  * @idx: index of the node, starting at 0
@@ -26,7 +26,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 	{
 		tmp = tmp->next;
 		if (tmp == NULL)
-			return (NULL); 
+			return (NULL);
 	}
 
 	new->next = tmp->next;
