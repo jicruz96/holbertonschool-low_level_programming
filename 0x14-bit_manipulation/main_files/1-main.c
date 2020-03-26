@@ -8,15 +8,20 @@
  */
 int main(void)
 {
-    printf("TEST 1:\nExpected: 0\nActual:\n");
+    int n = sizeof(unsigned long int);
+    printf("n = %d\n", n);
+    printf("TEST 1:\nExpected:\n0\nActual:\n");
     print_binary(0);
-    printf("\nTEST 2:\nExpected: 1\nActual:\n");
+    printf("\nTEST 2:\nExpected:\n1\nActual:\n");
     print_binary(1);
-    printf("\nTEST 3:\nExpected: 1100010\nActual:\n");
+    printf("\nTEST 3:\nExpected:\n1100010\nActual:\n");
     print_binary(98);
-    printf("\nTEST 4:\nExpected: 10000000000\nActual:\n");
-    print_binary(1024);
-    printf("\nTEST 5:\nExpected: 10000000001\nActual:\n");
+    printf("\nTEST 4:\nExpected:\n10000000001\nActual:\n");
+    print_binary(1025);
+    printf("\nTEST 5:\nExpected:\n10000000001\nActual:\n");
     print_binary((1 << 10) + 1);
+    printf("\nTEST 6:\nExpected:\n1111111111111111111111111111111111111111111111111111111111111111\nActual:\n");
+    print_binary(ULONG_MAX);
+    printf("\n");
     return (0);
 }

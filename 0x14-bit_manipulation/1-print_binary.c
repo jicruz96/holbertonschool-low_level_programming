@@ -12,10 +12,15 @@ void print_binary(unsigned long int n)
 	unsigned long int subtractor = 1, exp;
 	int digits = 1;
 
-	while (subtractor * 2 <= n)
+	if (n == ULONG_MAX)
+		digits = 64;
+	else
 	{
-		subtractor *= 2;
-		digits++;
+		while (subtractor * 2 <= n)
+		{
+			subtractor *= 2;
+			digits++;
+		}
 	}
 
 	while (digits--)
