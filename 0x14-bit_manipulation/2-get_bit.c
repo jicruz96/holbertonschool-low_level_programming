@@ -13,6 +13,9 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned long int subtractor = 1, exp, digits = 1;
 	int buffer[64];
 
+	if (index > 63)
+		return (-1);
+
 	if (n == ULONG_MAX)
 		digits = 64;
 	else
@@ -23,6 +26,9 @@ int get_bit(unsigned long int n, unsigned int index)
 			digits++;
 		}
 	}
+
+	if (index + 1 > digits)
+		return (0);
 
 	while (digits--)
 	{
