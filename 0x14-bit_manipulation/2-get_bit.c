@@ -19,13 +19,8 @@ int get_bit(unsigned long int n, unsigned int index)
 	if (n == ULONG_MAX)
 		digits = 64;
 	else
-	{
-		while (subtractor * 2 <= n)
-		{
+		for (; subtractor * 2 <= n; digits++)
 			subtractor *= 2;
-			digits++;
-		}
-	}
 
 	if (index + 1 > digits)
 		return (0);
