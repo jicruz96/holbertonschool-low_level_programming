@@ -13,16 +13,14 @@ int get_bit(unsigned long int n, unsigned int index)
 	unsigned long int subtractor = 1, exp, digits = 1;
 	int buffer[64];
 
+	if (index > 63)
+		return (-1);
+
 	if (n == ULONG_MAX)
 		digits = 64;
 	else
-	{
-		while (subtractor * 2 <= n)
-		{
+		for (; subtractor * 2 <= n; digits++)
 			subtractor *= 2;
-			digits++;
-		}
-	}
 
 	if (index + 1 > digits)
 		return (0);
