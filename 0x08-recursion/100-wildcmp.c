@@ -5,49 +5,31 @@
 * @s1: first string, compared against s2
 * @s2: second string, compared against s1
 *
-* Return: integer describing relation between s1 & s2
+* Return: 1 if strings are identical | 0 if strings are not
 */
-
 int wildcmp(char *s1, char *s2)
 {
-	int i, j, ast, count;
-	char *s3 = s1;
-
-	for (i = 1; *s1 != 0 || *s2 != 0; i++)
+	if (s2[0] == '*')
 	{
-		while (*s2 == 42)
-			s2++;
-		for (j = 0, ast = 0; *(s2 + j) != 0 && *(s2 + j) != '\0'; j++)
-			if (*(s2 + j) == 42)
-				ast++;
-		if (ast == 0)
-		{
-			for (j = 0; s1[j] != 0 && s1[j] != '\0'; j++)
-			{
-				if (s1[j] == *s2)
-				{
-					count++;
-					s3 = &s1[j];
-				}
-			}
-			if (count == 0 && (s2 == 0 || s2 == '\0'))
-				s3 = &s1[++j];
-			s1 = s3;
-		}
-		if (*s1 == 0)
-			break;
-		while (*s1 != *s2 && *(s2 - 1) == 42)
-			s1++;
-		if (*s1 != *s2 || *s2 == 0)
-			break;
-		s1++;
-		s2++;
-		if (*s1 == 0)
-			break;
+		if (s2[1] == '\0')
+			return (1);
+
+		if (s2[1] == '*' || s1[0] == '\0')
+			return (wildcmp(s1, s2 + 1));
+				
+		if (s2[1] == s1[0])
+			if (wildcmp(s1 + 1, s2 + 2))
+				return (1);
+
+		return (wildcmp(s1 + 1, s2));
 	}
-	while (*s2 == 42)
-		s2++;
-	if (*s1 - *s2 == 0)
-		return (1);
+
+	if (s2[0] == s1[0])
+	{
+		if (s2[0] == '\0')
+			return (1);
+		return (wildcmp(s1 + 1, s2 + 1));
+	}
+
 	return (0);
 }
