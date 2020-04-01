@@ -11,7 +11,7 @@
 
 int main(int arc __attribute__((unused)), char *arv[] __attribute__((unused)))
 {
-	dprintf(STDERR_FILENO, "Usage: %s elf_header elf_filename\n", argv[0]);
+	dprintf(STDERR_FILENO, "Usage: %s elf_header elf_filename\n", arv[0]);
 	exit(98);
 	return (0);
 }
