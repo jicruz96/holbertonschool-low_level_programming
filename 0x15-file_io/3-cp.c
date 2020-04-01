@@ -16,15 +16,15 @@ int main(int argc, char *argv[])
 
 	if (argc != 3)
 		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n"), exit(97);
-	
+
 	file_from = open(argv[1], O_RDONLY);
 	if (file_from == -1)
 		cant_read(argv[1]);
-	
+
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664);
 	if (file_to == -1)
 		cant_write(argv[2]);
-	
+
 	while (sz == 1024)
 	{
 		sz = read(file_from, buf, 1024);
@@ -40,7 +40,7 @@ int main(int argc, char *argv[])
 
 	if (close(file_to) == -1)
 		cant_close(file_from);
-	
+
 	return (0);
 }
 /**
