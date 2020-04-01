@@ -12,6 +12,9 @@ listint_t *reverse_listint(listint_t **head)
 {
 	listint_t *nextNode, *newHead;
 
+	if (head == NULL)
+		return (NULL);
+
 	if ((*head)->next == NULL)
 		return (*head);
 
