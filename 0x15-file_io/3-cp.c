@@ -11,7 +11,7 @@
 
 int main(int argc, char *argv[])
 {
-	int file_from, file_to, sz = 1, check;
+	int file_from, file_to, sz = 1, check = 1024;
 	char buf[1024];
 
 	if (argc != 3)
@@ -27,7 +27,7 @@ int main(int argc, char *argv[])
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", argv[2]), exit(99);
 	while (sz)
 	{
-		sz = read(file_from, buf, 1024);
+		sz = read(file_from, buf, check);
 		if (sz == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]);
