@@ -71,5 +71,5 @@ void cant_read(char *filename)
 void cant_write(char *filename)
 {
 	dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
-	exit(100);
+	exit(99);
 }
