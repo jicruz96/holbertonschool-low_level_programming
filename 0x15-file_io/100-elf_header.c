@@ -9,7 +9,7 @@
  * Return: number of letters printed | 0 if error
  */
 
-int main(int argc, char *argv[])
+int main(int argc __attribute__((unused)), char *argv[] __attribute__((unused)))
 {
 	dprintf(STDERR_FILENO, "Usage: %s elf_header elf_filename\n", argv[0]);
 	exit(98);	
