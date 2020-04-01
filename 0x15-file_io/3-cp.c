@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
 
 	file_from = open(argv[1], O_RDONLY);	/* Open file to read from */
 	if (file_from == -1)			/* Exit 98 if can't open */
-		dprintf(2, "Error: Can't read from file %s\n", argv[1]), exit(98);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", argv[1]), exit(98);
 
 	/* Open file to copy to */
 	file_to = open(argv[2], O_CREAT | O_WRONLY | O_TRUNC, 0664); /*Open copyfile*/
