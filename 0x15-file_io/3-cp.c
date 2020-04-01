@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 		cant_close(file_from);
 
 	if (close(file_to) == -1)
-		cant_close(file_from);
+		cant_close(file_to);
 
 	return (0);
 }
