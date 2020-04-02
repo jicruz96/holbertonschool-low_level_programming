@@ -16,7 +16,7 @@ size_t print_listint_safe(const listint_t *head)
 	const listint_t *tortoise, *hare;
 
 	if (head == NULL)
-		exit(98);
+		return (0);
 
 	for (tortoise = head; hops == tmp; tmp++, hops++, tortoise = head)
 	{
