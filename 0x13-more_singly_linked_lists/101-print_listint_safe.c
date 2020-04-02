@@ -32,7 +32,7 @@ size_t print_listint_safe(const listint_t *head)
 			tortoise = tortoise->next;
 	}
 
-	for (; tortoise && --tmp; n++)
+	for (; tortoise && tmp--; n++)
 	{
 		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
 		tortoise = tortoise->next;
