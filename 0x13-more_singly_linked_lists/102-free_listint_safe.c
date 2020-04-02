@@ -10,13 +10,13 @@
  * Return: the number of nodes
  */
 
-void free_listint_safe(listint_t **head)
+size_t free_listint_safe(listint_t **head)
 {
 	int n = 0, tmp = 1, hops = 1;
 	listint_t *tortoise, *hare;
 
 	if (head == NULL || *head == NULL)
-		return;
+		return (0);
 
 	for (tortoise = *head; hops == tmp; tmp++, hops++, tortoise = *head)
 	{
@@ -44,4 +44,6 @@ void free_listint_safe(listint_t **head)
 		else
 			*head = tortoise;
 	}
+
+	return (n);
 }
