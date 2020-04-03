@@ -16,5 +16,5 @@ int main(void)
 			if (!(i % mul[j]))
 				sum += i;
 	printf("%d\n", sum);
-	return(0);
+	return (0);
 }
