@@ -16,7 +16,6 @@ int main(void)
 	while (x <= '7')
 	{
 		y = x + 1;
-		{
 			while (y <= '8')
 			{
 				z = y + 1;
@@ -34,7 +33,6 @@ int main(void)
 				y++;
 			}
 		x++;
-		}
 	}
 	putchar('\n');
 	return (0);
