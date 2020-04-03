@@ -26,7 +26,7 @@ int main(void)
 		if (sumMore)
 		{
 			tmp += prevSum;
-			printf(", %lu%lu", sumMore, sum);
+			printf(", %lu%.5lu", sumMore, sum);
 		}
 		else
 			printf(", %lu", sum);
