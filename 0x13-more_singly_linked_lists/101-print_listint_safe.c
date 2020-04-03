@@ -1,50 +1,48 @@
 #include "lists.h"
 #include <stdlib.h>
 #include <stdio.h>
-const listint_t *find_loop(const listint_t *head);
+
 /**
  * print_listint_safe - prints all the nodes of a list; avoids infinite loops
+ *
  * @head: head pointer to list to be printed
+ *
  * Return: the number of nodes
  */
+
 size_t print_listint_safe(const listint_t *head)
 {
-	int loop_match = 2, nodes_printed = 0;
-	const listint_t *loop_start;
+	int n = 0, tmp = 1, hops = 1;
+	const listint_t *tortoise, *hare;
 
-	loop_start = find_loop(head);
+	if (head == NULL)
+		return (0);
 
-	while (loop_match && head)
+	for (tortoise = head; hops == tmp; tmp++, hops++, tortoise = head)
 	{
-		printf("[%p] %d\n", (void *)head, head->n);
-		nodes_printed++;
-		head = head->next;
-		if (head == loop_start)
-			loop_match--;
-		if (!(loop_match))
-			printf("->[%p] %d\n", (void *)head, head->n);
-	}
-	return (nodes_printed);
-}
-/**
- * find_loop - finds a loop in a linked list
- * @head: head pointer to list to be printed
- * Return: address of the node where the loop starts or NULL if no loop found
- */
-const listint_t *find_loop(const listint_t *head)
-{
-	const listint_t *hare, *tortoise;
+		hare = head;
 
-	hare = head;
-	while (hare)
-	{
-		tortoise = head;
-		hare = hare->next;
-		if (hare == NULL || hare == tortoise)
-			return (hare);
-		for (;tortoise != hare; tortoise = tortoise->next)
-			if (tortoise->next == hare->next)
-				return (tortoise->next);
+		while (hare && hops--)
+			hare = hare->next;
+
+		if (hare == NULL)
+		{
+			tmp++;
+			break;
+		}
+
+		for (hops = 0; tortoise != hare; hops++)
+			tortoise = tortoise->next;
 	}
-	return (hare);
+
+	for (; tortoise && --tmp; n++)
+	{
+		printf("[%p] %d\n", (void *)tortoise, tortoise->n);
+		tortoise = tortoise->next;
+	}
+
+	if (hare)
+		printf("-> [%p] %d\n", (void *)hare, hare->n);
+
+	return (n);
 }
