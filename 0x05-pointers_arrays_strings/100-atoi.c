@@ -14,7 +14,7 @@ int _atoi(char *s)
 			sign = sign ^ 1;
 		else
 			for (; s[i] >= '0' && s[i] <= '9' && s[i] != '\0'; i++, check++)
-				sum = (sum * base) + s[i] - '0';
+				sum = (sum * base) + (s[i] - '0');
 
 	if (sign)
 		return (-sum);
