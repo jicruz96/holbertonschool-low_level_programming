@@ -16,7 +16,7 @@ int _atoi(char *s)
 			for (; s[i] >= '0' && s[i] <= '9' && s[i] != '\0'; i++, check++)
 				sum = (sum * base) + (s[i] - '0');
 
-	if (sign)
+	if (sign && sum != INT_MIN)
 		return (-sum);
 	else
 		return (sum);
