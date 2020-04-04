@@ -1,5 +1,5 @@
 #include "holberton.h"
-
+#include <stdio.h>
 /**
 * _sqrt_recursion - returns the natural square root of int n if it exists
 *
@@ -14,15 +14,11 @@ int _sqrt_recursion(int n)
 
 	if (n == 1)
 		return (1);
-
 	if (n < 0)
 		return (-1);
-
-	check = sqrt_search(0, n / 2, n);
-
+	check = sqrt_search(0, 1, n);
 	if (check * check == n)
 		return (check);
-
 	return (-1);
 }
 /**
@@ -39,7 +35,7 @@ int sqrt_search(int low, int high, int n)
 	int guess_squared = guess * guess, next_squared = next * next;
 
 	if (low > high)
-		return (low);
+		return (sqrt_search(low, low + 1, n));
 	if ((guess_squared <= n) && (next_squared > n))
 		return (guess);
 	if (guess_squared < n)
