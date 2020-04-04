@@ -34,6 +34,7 @@ int sqrt_search(int low, int high, int n)
 	int next = guess + 1, prev = guess - 1;
 	int guess_squared = guess * guess, next_squared = next * next;
 
+
 	if (low > high)
 		return (sqrt_search(low, low + 1, n));
 	if ((guess_squared <= n) && (next_squared > n))

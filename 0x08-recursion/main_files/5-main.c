@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdio.h>
+#include <limits.h>
 
 /**
  * main - check the code for Holberton School students.
@@ -12,7 +13,7 @@ int main(void)
 
     r = _sqrt_recursion(1);
     printf("%d\n", r);
-    r = _sqrt_recursion(16777216);
+    r = _sqrt_recursion(INT_MAX / 10);
     printf("%d\n", r);
     r = _sqrt_recursion(16);
     printf("%d\n", r);
