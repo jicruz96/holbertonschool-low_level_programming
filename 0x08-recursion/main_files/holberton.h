@@ -12,4 +12,6 @@ int is_prime_number(int n);
 int is_palindrome(char *s);
 int wildcmp(char *s1, char *s2);
 int sqrt_search(int low, int high, int n);
+char *findLastLetter(char *s);
+int palindrome_check(char *s, char *LastLetter);
 #endif
