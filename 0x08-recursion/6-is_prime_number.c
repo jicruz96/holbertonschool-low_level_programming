@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdio.h>
 #include <math.h>
 /**
 * is_prime_number - returns 1 if n is a prime number, 0 if composite
@@ -10,33 +11,30 @@
 
 int is_prime_number(int n)
 {
-	int filter;
+	int half = n / 2;
+	int is_even = (n % 2) ^ 1;
 
-	if (n < 0)
+	if (n < 2 || is_even)
 		return (0);
 
-	if (n / 10 >= 1)
-	{
-		filter = is_prime_number(n % 10);
-		if (filter == 1 || n % 10 == 1 || n % 10 == 9)
-		{
-			if (n % 2 == 0 || n % 5 == 0)
-			{
-				return (0);
-			}
-			else
-			{
-				return (1);
-			}
-		}
-		else
-		{
-			return (0);
-		}
-	}
-
-	if (n == 2 || n == 3 || n == 5 || n == 7)
+	if (half < 4)
 		return (1);
-	else
-		return (0);
+
+	if (!(half % 2))
+		--half;
+
+	if (prime_check(n, half))
+		return (1);
+
+	return (0);
+}
+
+int prime_check(int n, int div)
+{
+	if (div == 3 && (n % 3))
+		return (1);
+	if (n % div)
+		return (prime_check(n, div - 2));
+
+	return (0);
 }
