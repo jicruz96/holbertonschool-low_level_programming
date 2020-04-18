@@ -2,44 +2,33 @@
 #include <stdio.h>
 /**
 * _sqrt_recursion - returns the natural square root of int n if it exists
-*
 * @n: sqrt(n) is returned
-*
 * Return: sqrt(n) if it exists, -1 otherwise
 */
-
 int _sqrt_recursion(int n)
 {
-	int check;
-
-	if (n == 1)
-		return (1);
 	if (n < 0)
 		return (-1);
-	check = sqrt_search(0, 1, n);
-	if (check * check == n)
-		return (check);
-	return (-1);
+
+	if (n < 2)
+		return (n);
+
+	return (sqrt_check(n, n / 2));
 }
+
 /**
- * sqrt_search - finds a guess for the square root of n
- * @low: low-ball guess, usually zero
- * @high: high-ball guess, usually no greater than n / 2
- * @n: number to find square root for
- * Return: guess of square root
- */
-int sqrt_search(int low, int high, int n)
+ * sqrt_check - checks if natural square root exists
+ * @n: number to check
+ * @guess: guess of square root
+ * Return: sqrt(n) if it exists, -1 otherwise
+ **/
+int sqrt_check(int n, int guess)
 {
-	int guess = (low + high) / 2;
-	int next = guess + 1, prev = guess - 1;
-	int guess_squared = guess * guess, next_squared = next * next;
+	if (guess == 1)
+		return (-1);
 
-
-	if (low > high)
-		return (sqrt_search(low, low + 1, n));
-	if ((guess_squared <= n) && (next_squared > n))
+	if ((n / guess == guess) && !(n % guess))
 		return (guess);
-	if (guess_squared < n)
-		return (sqrt_search(next, high, n));
-	return (sqrt_search(low, prev, n));
+
+	return (sqrt_check(n, guess - 1));
 }

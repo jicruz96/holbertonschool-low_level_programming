@@ -12,7 +12,7 @@ int is_prime_number(int n);
 int prime_check(int n, int div);
 int is_palindrome(char *s);
 int wildcmp(char *s1, char *s2);
-int sqrt_search(int low, int high, int n);
+int sqrt_check(int n, int guess);
 char *findLastLetter(char *s);
 int palindrome_check(char *s, char *LastLetter);
 #endif
