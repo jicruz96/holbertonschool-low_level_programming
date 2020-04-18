@@ -1,6 +1,4 @@
 #include "holberton.h"
-#include <stdio.h>
-#include <math.h>
 /**
 * is_prime_number - returns 1 if n is a prime number, 0 if composite
 *
@@ -28,7 +26,12 @@ int is_prime_number(int n)
 
 	return (0);
 }
-
+/**
+ * prime_check - checks if the number is prime
+ * @n: number to check
+ * @div: divisor that helps us check recursively
+ * Return: 1 if prime, 0 otherwise
+ **/
 int prime_check(int n, int div)
 {
 	if (div == 3 && (n % 3))
