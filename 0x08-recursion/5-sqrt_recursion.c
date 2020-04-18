@@ -7,13 +7,16 @@
 */
 int _sqrt_recursion(int n)
 {
+	int is_even = (n % 2) ^ 1,
+		div = 1 + is_even;
+
 	if (n < 0)
 		return (-1);
 
 	if (n < 2)
 		return (n);
 
-	return (sqrt_check(n, n / 2));
+	return (sqrt_check(n, div));
 }
 
 /**
@@ -24,11 +27,11 @@ int _sqrt_recursion(int n)
  **/
 int sqrt_check(int n, int guess)
 {
-	if (guess == 1)
+	if (guess * guess > n)
 		return (-1);
 
 	if ((n / guess == guess) && !(n % guess))
 		return (guess);
 
-	return (sqrt_check(n, guess - 1));
+	return (sqrt_check(n, guess + 2));
 }
