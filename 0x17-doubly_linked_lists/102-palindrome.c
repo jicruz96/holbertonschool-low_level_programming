@@ -1,7 +1,7 @@
 #include "lists.h"
 #define MAX 1000
 /**
- * main - finds largest palindrome that's a product of 3 digit numbers
+ * main - finds largest palindrome that's a product of two 3 digit numbers
  * Return: always 1
  **/
 int main(void)
@@ -15,11 +15,6 @@ int main(void)
 	return (printf("%d\n", c));
 }
 
-/**
- * is_palindrome - returns 1 if n is palindrome | 0 otherwise
- * @n: number to check
- * Return: 1 if palindrome | 0 otherwise
- **/
 int is_palindrome(unsigned int n)
 {
 	dlistint_t *h = NULL, *t = NULL, *tmp = NULL;
