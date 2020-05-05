@@ -3,31 +3,18 @@
 #include <stdio.h>
 /**
 * _strpbrk - searches string for first match with any element from accept
-*
 * @s: string to be searched
 * @accept: elements to be searched for
-*
 * Return: pointer to 1st occurence of an element of accept, or NULL if no match
-*
-*/
-
+**/
 char *_strpbrk(char *s, char *accept)
 {
-	unsigned int i, j;
-	char *strpbrk = NULL;
+	int i;
 
-	for (i = 0; s[i] != '\0'; i++)
-	{
-		j = 0;
+	for (; *s; s++)
+		for (i = 0; accept[i]; i++)
+			if (*s == accept[i])
+				return (s);
 
-		while (s[i] != accept[j] && accept[j] != '\0')
-			j++;
-
-		if (s[i] == accept[j])
-		{
-			strpbrk = &s[i];
-			break;
-		}
-	}
-	return (strpbrk);
+	return (NULL);
 }

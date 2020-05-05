@@ -40,6 +40,6 @@ int get_head(const dlistint_t **ptr);
 int get_tail(const dlistint_t **ptr);
 dlistint_t *make_node(int n);
 const dlistint_t *traverse(const dlistint_t *ptr, int n);
-int is_palindrome(unsigned int n);
+int is_pal(unsigned int n);
 
 #endif /*LISTS_H*/

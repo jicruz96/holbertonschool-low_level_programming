@@ -42,7 +42,7 @@ const listint_t *find_loop(const listint_t *head)
 		hare = hare->next;
 		if (hare == NULL || hare == tortoise)
 			return (hare);
-		for (;tortoise != hare; tortoise = tortoise->next)
+		for (; tortoise != hare; tortoise = tortoise->next)
 			if (tortoise->next == hare->next)
 				return (tortoise->next);
 	}

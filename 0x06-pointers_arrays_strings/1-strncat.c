@@ -1,38 +1,26 @@
 #include "holberton.h"
 
 /**
-* _strncat - concatenates two strings, stopping the src string at the nth byte
-*
+* _strncat - appends up to n bytes of src string onto end of dest string
 * @src: string to be concatenated to end of dest-- up to src's nth byte
-* @dest: string that src is appended to
-* @n: number of bytes of src to be concatenated to dest
-*
+* @dest: string
+* @n: number of bytes of src to append to end of dest
 * Return: charpointer to concatenated string
-*/
-
+**/
 char *_strncat(char *dest, char *src, int n)
 {
-	int iDest, iSrc;
+	int i = 0, j = 0;
 
-	for (iDest = 0; ; iDest++)
-	{
-		if (dest[iDest] == '\0')
-		{
-			for (iSrc = 0; iSrc <= n; iSrc++, iDest++)
-			{
-				if (iSrc == n)
-				{
-					dest[iDest] = '\0';
-					break;
-				}
-				dest[iDest] = src[iSrc];
-				if (src[iSrc] == '\0')
-				{
-					break;
-				}
-			}
-			break;
-		}
-	}
+	/* go to end of dest string */
+	while (dest[i] != '\0')
+		i++;
+
+	/* append up to n bytes of src */
+	while (src[j] != '\0' && j < n)
+		dest[i++] = src[j++];
+
+	/* add null byte to end of dest */
+	dest[i] = '\0';
+
 	return (dest);
 }

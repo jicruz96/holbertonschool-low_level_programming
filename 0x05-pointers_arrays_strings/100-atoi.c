@@ -1,27 +1,37 @@
 #include "holberton.h"
-#define DIVISOR 100000000
+#include <limits.h>
+#define IS_DIGIT ((s[i] >= '0') && (s[i] <= '9'))
+#define STRING_EXISTS (s[i] != '\0')
+#define DIGIT (s[i] - '0')
 /**
  * _atoi - converts a string to an integer, based on the first found integer
  * @s: string to convert to integer
- * Return: integer
+ * Return: found integer, as integer data type | 0 if no integer found
  */
 int _atoi(char *s)
 {
-	int i = 0, sign = 0, sum = 0, base = 10, check = 0;
+	int i, num, digit, sign = 1;
 
-	for (; s[i] != '\0' && !(check); i++)
+	/* loop through string indexes until the end */
+	for (i = 0; STRING_EXISTS; i++)
+	{
+		if (IS_DIGIT)
+		{
+			/* while the char is a digit, update 'num' */
+			for (num = 0; IS_DIGIT; i++)
+			{
+				digit = sign * DIGIT;
+				num *= 10;
+				num += digit;
+			}
+			/* then, return it */
+			return (num);
+		}
+
+		/* if char is a hypen, flip sign's sign */
 		if (s[i] == '-')
-			sign = sign ^ 1;
-		else
-			for (; s[i] >= '0' && s[i] <= '9' && s[i] != '\0'; i++, check++)
-				if (!(sum * base / DIVISOR && s[i] >= '8'))
-					sum = (sum * base) + (s[i] - '0');
-				else
-					return (INT_MIN);
-
-	if (sign && sum != INT_MIN)
-		return (-sum);
-	else
-		return (sum);
-
+			sign *= -1;
+	}
+	/* return 0 if string doesn't exist or a number wasn't found */
+	return (0);
 }

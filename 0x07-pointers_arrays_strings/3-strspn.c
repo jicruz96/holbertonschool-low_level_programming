@@ -3,38 +3,35 @@
 #include <stdio.h>
 /**
 * _strspn - returns times that elements of accept appear in s's initial segment
-*
 * @s: string to inspect
 * @accept: characters to test for
-*
 * Return: number of bytes in initial segment of s which are bytes in accept
-*
-*/
-
+**/
 unsigned int _strspn(char *s, char *accept)
 {
-	unsigned int count = 0;
-	int i, j, segment;
-	char sprtr[] = {9, 10, 32, 33, 34, 40, 41, 44, 46, 59, 63, 123, 125};
+	unsigned int matches = 0, i;
+	char *delims = ",.;?\t\n !\"(){}";
 
-	for (segment = 0; s[segment] != '\0'; segment++)
+	/* while the string exists */
+	for (; *s; s++)
 	{
-		j = 0;
-
-		while (s[segment] != sprtr[j] && sprtr[j] != '\0')
-			j++;
-
-		if (s[segment] == sprtr[j])
-			break;
-	}
-
-	for (i = 0; i < segment; i++)
-	{
-		for (j = 0; accept[j] != '\0'; j++)
+		/* Check if current char matches with an element of 'accept' */
+		for (i = 0; *s && accept[i]; i++)
 		{
-			if (s[i] == accept[j])
-				count++;
+			/* if so, log match. then check next letter */
+			if (*s == accept[i])
+			{
+				matches++;
+				s++;
+				i = -1;
+			}
 		}
+		/* Check if current char matches with a delimiter */
+		for (i = 0; *s && delims[i]; i++)
+			if (*s == delims[i]) /* if so, we're done. return matches */
+				return (matches);
 	}
-	return (count);
+
+	/* 's' string is done, return matches */
+	return (matches);
 }
