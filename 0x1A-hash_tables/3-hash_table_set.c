@@ -25,7 +25,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	new->value = strdup(value);
 
 	if (ht->array[i])
-		new->next = ht->array[i]->next;
+		new->next = ht->array[i];
 	else
 		new->next = NULL;
 
