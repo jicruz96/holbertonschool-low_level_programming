@@ -1,0 +1,6 @@
+# -*- MakeFile -*-
+
+.PHONY: all
+
+all: main.c holberton.c m.h
+	gcc main.c holberton.c -o holberton
