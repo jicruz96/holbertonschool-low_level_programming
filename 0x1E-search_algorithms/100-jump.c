@@ -1,6 +1,5 @@
-#include "0-linear.c"
+#include "search_algos.h"
 #include <math.h>
-#define VALUE_CHECKED "Value checked array[%u] = [%d]\n"
 
 /**
  * jump_search - jump search algorithm
@@ -11,25 +10,22 @@
  **/
 int jump_search(int *array, size_t size, int value)
 {
-	unsigned int block_size, start, end;
+	unsigned int block_size = sqrt(size), start, end = 0;
 
 	if (!array || !size)
 		return (-1);
 
-	block_size = sqrt(size);
-	for (end = 0; end < size && array[end] < value; end += block_size)
+	for (; end < size && array[end] < value; end += block_size)
 		printf(VALUE_CHECKED, end, array[end]);
 
 	start = end - block_size;
-	printf("Value found between indexes [%u] and [%u]\n", start, end);
+	printf(VALUE_FOUND, start, end);
 	end = end < size ? end : size - 1;
-	while (start <= end)
+	for (; start <= end; start++)
 	{
 		printf(VALUE_CHECKED, start, array[start]);
 		if (array[start] == value)
 			return ((int)start);
-		start++;
 	}
-
 	return (-1);
 }
