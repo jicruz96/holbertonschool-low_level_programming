@@ -1,5 +1,6 @@
 #include "0-linear.c"
 #include <math.h>
+#define VALUE_CHECKED "Value checked array[%u] = [%d]\n"
 
 /**
  * jump_search - jump search algorithm
@@ -10,29 +11,24 @@
  **/
 int jump_search(int *array, size_t size, int value)
 {
-	unsigned int jump_step, i, t;
+	unsigned int block_size, start, end;
 
 	if (!array || !size)
 		return (-1);
 
-	jump_step = sqrt(size);
-	for (i = 0; jump_step * i < size; i++)
-	{
-		t = jump_step * i;
-		if (array[jump_step * i] >= value)
-			break;
-		printf("Value checked array[%u] = [%d]\n", t, array[t]);
-	}
+	block_size = sqrt(size);
+	for (end = 0; end < size && array[end] < value; end += block_size)
+		printf(VALUE_CHECKED, end, array[end]);
 
-	t = jump_step * i;
-	printf("Value found between indexes [%u] and [%u]\n", t - jump_step, t);
-	if (t > size)
-		t = size - 1;
-	for (i = jump_step * (i - 1); i <= t; i++)
+	start = end - block_size;
+	printf("Value found between indexes [%u] and [%u]\n", start, end);
+	end = end < size ? end : size - 1;
+	while (start <= end)
 	{
-		printf("Value checked array[%u] = [%d]\n", i, array[i]);
-		if (array[i] == value)
-			return ((int)i);
+		printf(VALUE_CHECKED, start, array[start]);
+		if (array[start] == value)
+			return ((int)start);
+		start++;
 	}
 
 	return (-1);
