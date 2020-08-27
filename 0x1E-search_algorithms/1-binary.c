@@ -1,7 +1,5 @@
 #include "search_algos.h"
 
-void print_array(int *array, size_t size);
-
 /**
  * binary_search - binary search algorithm
  * @array: array of integers
@@ -11,49 +9,29 @@ void print_array(int *array, size_t size);
  **/
 int binary_search(int *array, size_t size, int value)
 {
-	int tmp, i, odd_shift;
+	int tmp, odd_shift;
+	size_t i;
 
-	if (!array || size == 0)
+	if (!array || !size)
 		return (-1);
 
-	print_array(array, size);
+	printf("Searching in array: ");
+	for (i = 0; i < size; i++)
+		printf("%d%s", array[i], i + 1 == size ? "\n" : ", ");
 
-	if (size == 1)
-		return (*array == value ? 0 : -1);
-
-	odd_shift = (size % 2 == 0);
-	i = size / 2 - odd_shift;
+	odd_shift = (size % 2);
+	size /= 2;
+	i = size - (size > 0 && !odd_shift);
 
 	if (array[i] == value)
 		return (i);
 
-	if (array[i] < value)
-	{
-		array = array + i + 1;
-		tmp = binary_search(array, i + odd_shift, value);
-		if (tmp == -1)
-			return (-1);
-		return (i + 1 + tmp);
-	}
+	if (array[i] > value)
+		return (binary_search(array, i, value));
 
-	return (binary_search(array, i, value));
-}
+	tmp = binary_search(array + i + 1, size, value);
+	if (tmp == -1)
+		return (-1);
 
-/**
- * print_array - prints array
- * @array: array to print
- * @size: size of array
- **/
-void print_array(int *array, size_t size)
-{
-	size_t i;
-
-	printf("Searching in array: ");
-	for (i = 0; i < size; i++)
-	{
-		printf("%d", array[i]);
-		if (i + 1 != size)
-			printf(", ");
-	}
-	printf("\n");
+	return (size + odd_shift + tmp);
 }
