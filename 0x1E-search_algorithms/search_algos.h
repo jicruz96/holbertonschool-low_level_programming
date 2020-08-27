@@ -12,4 +12,10 @@ int binary_search(int *array, size_t size, int value);
 /* Advanced Task 100 */
 int jump_search(int *array, size_t size, int value);
 
+/* Adanced Task 102 */
+int interpolation_search(int *array, size_t size, int value);
+
+#define VALUE_CHECKED "Value checked array[%u] = [%d]\n"
+#define VALUE_FOUND "Value found between indexes [%u] and [%u]\n"
+
 #endif /* SEARCH_ALGOS */
