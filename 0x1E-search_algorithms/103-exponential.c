@@ -20,7 +20,7 @@ int exponential_search(int *array, size_t size, int value)
 
 	start = bound / 2;
 	end = bound < size ? bound : size - 1;
-	size = end - start;
+	size = end - start + 1;
 
 	printf(VALUE_FOUND, start, end);
 
