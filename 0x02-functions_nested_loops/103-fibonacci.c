@@ -1,22 +1,23 @@
 #include "holberton.h"
 #include <stdio.h>
-#define CAP 4000000
+#define MAX 4000000
+
 /**
- * main - computes and prints the sum of all multiples of 3 or 5 below 1024
- * Return: 0
- */
+ * main - entry point
+ * Return: always 0
+ **/
 int main(void)
 {
-	unsigned long prevDigit = 1, prevSum = 1, sum = 1, sum_of_evens = 0;
+	int num1 = 0, num2 = 1, sum = 0, result = 0;
 
-	while (sum + prevDigit <= CAP)
+	while (sum <= MAX)
 	{
-		prevSum = sum;
-		sum += prevDigit;
-		if (!(sum % 2))
-			sum_of_evens += sum;
-		prevDigit = prevSum;
+		result += (sum % 2 == 0) * sum;
+		num1 = num2;
+		num2 = sum;
+		sum = num1 + num2;
 	}
-	printf("%lu\n", sum_of_evens);
+	printf("%d\n", result);
 	return (0);
 }
+
