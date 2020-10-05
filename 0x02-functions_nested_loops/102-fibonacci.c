@@ -7,17 +7,16 @@
  */
 int main(void)
 {
-	unsigned long prevDigit = 1, prevSum = 1, sum = 2, i = 0;
+	unsigned long int num1 = 1, num2 = 2, tmp, i = 0;
 
-	if (CAP)
-		printf("%lu", prevDigit);
-
-	while (++i < CAP)
+	for (i = 0; i < CAP; i++)
 	{
-		printf(", %lu", sum);
-		prevSum = sum;
-		sum += prevDigit;
-		prevDigit = prevSum;
+		if (num1 != 1)
+			printf(", ");
+		printf("%lu", num1);
+		tmp = num1;
+		num1 = num2;
+		num2 += tmp;
 	}
 	printf("\n");
 	return (0);
