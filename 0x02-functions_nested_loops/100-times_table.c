@@ -1,45 +1,49 @@
 #include "holberton.h"
 
 /**
-* print_times_table - prints multiplication table for the number n
-* @n: number
-* Return: no return value
-*/
+ * print_number - prints number
+ * @number: number
+ **/
+void print_number(int number)
+{
+	if (number > 9)
+	{
+		print_number(number / 10);
+		_putchar(number % 10 + '0');
+	}
+	else
+	{
+		_putchar(number + '0');
+	}
+}
 
+/**
+* print_times_table - prints multiplication table for n if n >= 0 and <= 15
+* @n: number
+*/
 void print_times_table(int n)
 {
-	int r, c;
+	int row, column, product;
 
-	for (r = 0; r <= n; r++)
-	{
-		if (n < 0 || n > 15)
-			break;
-		for (c = 0; c <= n; c++)
+	if (n < 0 || n > 15)
+		return;
+
+	for (row = 0; row <= n; row++, _putchar('\n'))
+		for (column = 0; column <= n; column++)
 		{
-			if (c != 0)
-			{
-				if (c * r < 100)
-				{
-					_putchar(' ');
-					if (c * r < 10)
-						_putchar(' ');
-					else
-						_putchar(c * r / 10 + '0');
-				}
-				else
-				{
-					_putchar(c * r / 100 + '0');
-					_putchar((c * r % 100) / 10 + '0');
-				}
-			}
-			_putchar((c * r % 10) + '0');
-			if (c != n)
+			product = row * column;
+			if (column)
 			{
 				_putchar(',');
 				_putchar(' ');
+				if (product < 100)
+				{
+					_putchar(' ');
+					if (product < 10)
+						_putchar(' ');
+				}
 			}
+			print_number(product);
 		}
-		_putchar(10);
-	}
 }
 
