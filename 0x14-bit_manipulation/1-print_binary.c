@@ -9,35 +9,12 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned long int subtractor = 1, exp;
-	int digits = 1;
-
-	if (n == ULONG_MAX)
-		digits = 64;
-	else
+	if (!n)
 	{
-		while (subtractor * 2 <= n)
-		{
-			subtractor *= 2;
-			digits++;
-		}
+		_putchar('0');
+		return;
 	}
 
-	while (digits--)
-	{
-		exp = digits;
-		subtractor = 1;
-
-		while (exp--)
-			subtractor *= 2;
-
-		if (subtractor <= n)
-		{
-			n -= subtractor;
-			_putchar('1');
-		}
-		else
-			_putchar('0');
-
-	}
+	for (; n; n >>= 1)
+		_putchar('0' + (n & 1));
 }
