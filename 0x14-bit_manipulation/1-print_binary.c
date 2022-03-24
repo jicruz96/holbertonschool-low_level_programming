@@ -24,7 +24,7 @@ void print_binary(unsigned long int n)
 
 	for (i = BUFFER_SIZE; n != 0; n >>= 1)
 		buffer[--i] = '0' + (n & 1);
-	
+
 	for (; i < (int)BUFFER_SIZE; i++)
 		_putchar(buffer[i]);
 }
