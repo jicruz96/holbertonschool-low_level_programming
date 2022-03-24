@@ -1,8 +1,8 @@
 #include "holberton.h"
 
 #define size_in_bits(x) (sizeof(x) * 8)
-#define BUFFER_SIZE size_in_bits(unsigned long int)
-
+#define false 0
+#define true 1
 
 /**
  * print_binary - prints the binary representation of a given number
@@ -13,18 +13,19 @@
  */
 void print_binary(unsigned long int n)
 {
-	char buffer[BUFFER_SIZE];
 	int i;
+	int digit_printed = false;
+	char bit;
 
-	if (n == 0)
+	#define is_leading_zero(x) ((x) == '0' && !digit_printed && i != 0)
+
+	for (i = size_in_bits(n) - 1; i >= 0; i--)
 	{
-		_putchar('0');
-		return;
+		bit = '0' + ((n >> i) & 1);
+		if (!is_leading_zero(bit))
+		{
+			_putchar(bit);
+			digit_printed = true;
+		}
 	}
-
-	for (i = BUFFER_SIZE; n != 0; n >>= 1)
-		buffer[--i] = '0' + (n & 1);
-
-	for (; i < (int)BUFFER_SIZE; i++)
-		_putchar(buffer[i]);
 }
