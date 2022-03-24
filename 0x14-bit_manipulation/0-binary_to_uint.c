@@ -1,5 +1,10 @@
 #include "holberton.h"
 
+
+#define IS_ONE(x) ((x) == '1')
+#define IS_ZERO(x) ((x) == '0')
+#define IS_BINARY(x) (IS_ONE(x) || IS_ZERO(x))
+
 /**
  * binary_to_uint - converts a binary number to an unsigned int
  *
@@ -7,37 +12,19 @@
  *
  * Return: converted number | 0 if input isn't binary number
  */
-
 unsigned int binary_to_uint(const char *b)
 {
-	int i = 0, n = 0, power = -1, multiplier, tmp;
+	int i;
+	unsigned int n;
 
 	if (b == NULL)
 		return (0);
 
-	for (; b[i]; i++, power++)
-		if ((b[i] != '1') && (b[i] != '0'))
-			return (0);
-
-	if (power != -1)
+	for (i = 0, n = 0; b[i]; i++)
 	{
-		i = 0;
-		while (b[i])
-		{
-			multiplier = power;
-			tmp = 1;
-			if (b[i] == '1')
-			{
-				while (multiplier)
-				{
-					tmp *= 2;
-					multiplier--;
-				}
-				n += tmp;
-			}
-			power--;
-			i++;
-		}
+		if (!IS_BINARY(b[i]))
+			return (0);
+		n = (n << 1) + IS_ONE(b[i]);
 	}
 
 	return (n);
